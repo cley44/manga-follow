@@ -9,14 +9,10 @@ const HomePage = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Main" component={Home} />
-      <Stack.Screen name="Manga" component={MangaInfo} />
     </Stack.Navigator>
   );
 };
 
-const styles = StyleSheet.create({
-  base: {},
-  flatlist: { width: "100%" },
-});
+const styles = StyleSheet.create({});
 
 export default HomePage;

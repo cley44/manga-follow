@@ -6,6 +6,7 @@ type SearchBarComponentProps = {};
 
 const SwitchComponent = ({ getSearchWord }: any) => {
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const updateSearch = (search: React.SetStateAction<string>) => {
     setSearch(search);
@@ -18,8 +19,12 @@ const SwitchComponent = ({ getSearchWord }: any) => {
         onChangeText={updateSearch}
         value={search}
         onSubmitEditing={() => {
-          getSearchWord(search);
+          setLoading(true);
+          getSearchWord(search).then(() => setLoading(false));
         }}
+        showLoading={loading}
+        containerStyle={styles.containerSearchBar}
+        inputContainerStyle={styles.InputSearchBar}
       />
     </View>
   );
@@ -28,6 +33,13 @@ const SwitchComponent = ({ getSearchWord }: any) => {
 const styles = StyleSheet.create({
   view: {
     margin: 10,
+  },
+  InputSearchBar: { borderRadius: 40 },
+  containerSearchBar: {
+    padding: 0,
+    backgroundColor: "0",
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
   },
 });
 

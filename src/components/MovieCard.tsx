@@ -4,22 +4,22 @@ import { Manga } from "../Manga";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-export const MovieCard = ({ id, title, image, synopsis }: Manga) => {
+export const MovieCard = (manga: Manga) => {
   const navigation = useNavigation();
 
-  if (id) {
+  if (manga) {
     return (
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Manga", {
-            manga: { id, title, image, synopsis },
+            manga: manga,
           });
         }}
         style={styles.touchable}
       >
         <Card containerStyle={styles.card}>
-          <Card.Image source={{ uri: image }} style={styles.image} />
-          <Card.Title style={styles.title}>{title}</Card.Title>
+          <Card.Image source={{ uri: manga.image }} style={styles.image} />
+          <Card.Title style={styles.title}>{manga.title}</Card.Title>
         </Card>
       </TouchableOpacity>
     );
@@ -30,7 +30,7 @@ export const MovieCard = ({ id, title, image, synopsis }: Manga) => {
 
 const styles = StyleSheet.create({
   card: { width: "100%" },
-  image: {},
+  image: { height: 217 },
   title: {},
   touchable: { width: "45%" },
 });

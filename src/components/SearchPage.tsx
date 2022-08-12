@@ -6,13 +6,12 @@ import { MovieCard } from "./MovieCard";
 import SearchBarCustom from "./SearchBarCustom";
 
 const SearchPage = function (this: any) {
-  const [search, setSearch] = useState<String>("");
   const [mangas, setMangas] = useState<Manga[]>();
 
   const getSearchWord = (searchWord: String) => {
-    setSearch(searchWord);
-    searchManga(searchWord).then((m) => {
+    return searchManga(searchWord).then((m) => {
       setMangas(m);
+      return;
     });
   };
 

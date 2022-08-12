@@ -1,10 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { ImageBackground, StyleSheet } from "react-native";
 import HomePage from "./HomePage";
-import { MangaInfo } from "./MangaInfo";
 import SearchPage from "./SearchPage";
+import { CollectionPage } from "./CollectionPage";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,6 +24,13 @@ const Footer = ({ navigation }: any) => {
               return (
                 <ImageBackground
                   source={require("./../../assets/footer/search.png")}
+                  style={styles.logo}
+                />
+              );
+            case "Collection":
+              return (
+                <ImageBackground
+                  source={require("./../../assets/footer/collection.png")}
                   style={styles.logo}
                 />
               );
@@ -52,7 +58,14 @@ const Footer = ({ navigation }: any) => {
         options={{ title: "Search" }}
         component={SearchPage}
       />
-
+      <Tab.Screen
+        name="Collection"
+        options={{
+          title: "My collection",
+          headerTitleAlign: "center",
+        }}
+        component={CollectionPage}
+      />
       {/* <Tab.Screen
       name="Nav"
       options={{ title: "Navigation" }}
