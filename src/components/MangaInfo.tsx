@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
 import { CheckBox } from "@rneui/themed";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Manga } from "../Manga";
 
 export const MangaInfo = ({ route }: any) => {
