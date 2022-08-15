@@ -6,13 +6,19 @@ export const getTrendingManga = () => {
   return fetch(baseUrl + "/trending/manga")
     .then((response) => response.json())
     .then((json) => {
-      return json.data.map((element: any) => {
+      return json.data.map((element: any, index: any) => {
         const id = element.id;
         const title = element.attributes.canonicalTitle;
         const image = element.attributes.coverImage?.small;
         const synopsis = element.attributes.description;
+        const chapterCount = element.attributes.chapterCount;
+        const volumeCount = element.attributes.volumeCount;
 
-        return new Manga(id, title, image, synopsis);
+        // if (index == 1) {
+        //   console.log(element);
+        // }
+
+        return new Manga(id, title, image, chapterCount, volumeCount, synopsis);
       });
     })
     .catch((error) => {
@@ -29,8 +35,10 @@ export const searchManga = (searchWord: String) => {
         const title = element.attributes.canonicalTitle;
         const image = element.attributes.posterImage?.large;
         const synopsis = element.attributes.description;
+        const chapterCount = element.attributes.chapterCount;
+        const volumeCount = element.attributes.volumeCount;
 
-        return new Manga(id, title, image, synopsis);
+        return new Manga(id, title, image, chapterCount, volumeCount, synopsis);
       });
     });
 };

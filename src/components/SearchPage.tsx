@@ -25,6 +25,11 @@ const SearchPage = function (this: any) {
           return <MovieCard {...item.item}></MovieCard>;
         }}
         style={styles.flatlist}
+        columnWrapperStyle={{
+          justifyContent: "space-evenly",
+          paddingTop: 15,
+        }}
+        contentContainerStyle={{ paddingBottom: 15 }}
       />
     </View>
   );

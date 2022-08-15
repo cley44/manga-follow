@@ -29,7 +29,7 @@ export const MovieCard = (manga: Manga) => {
 };
 
 const styles = StyleSheet.create({
-  card: { width: "100%" },
+  card: { margin: 0 },
   image: { height: 217 },
   title: {},
   touchable: { width: "45%" },

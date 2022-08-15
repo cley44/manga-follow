@@ -1,0 +1,195 @@
+{
+  "attributes":  {
+    "abbreviatedTitles": [],
+    "ageRating": "G",
+    "ageRatingGuide": null,
+    "averageRating": "82.41",
+    "canonicalTitle": "Naruto",
+    "chapterCount": 700,
+    "coverImage":  {
+      "large": "https://media.kitsu.io/manga/cover_images/35/large.jpg",
+      "meta":  {
+        "dimensions":  {
+          "large":  {
+            "height": null,
+            "width": null,
+          },
+          "small":  {
+            "height": null,
+            "width": null,
+          },
+          "tiny":  {
+            "height": null,
+            "width": null,
+          },
+        },
+      },
+      "original": "https://media.kitsu.io/manga/cover_images/35/original.jpg",
+      "small": "https://media.kitsu.io/manga/cover_images/35/small.jpg",
+      "tiny": "https://media.kitsu.io/manga/cover_images/35/tiny.jpg",
+    },
+    "coverImageTopOffset": 125,
+    "createdAt": "2013-12-18T13:48:27.540Z",
+    "description": "Before Naruto's birth, a great demon fox had attacked the Hidden Leaf Village. A man known as the 4th Hokage sealed the demon inside the newly born Naruto, causing him to unknowingly grow up detested by his fellow villagers. Despite his lack of talent in many areas of ninjutsu, Naruto strives for only one goal: to gain the title of Hokage, the strongest ninja in his village. Desiring the respect he never received, Naruto works towards his dream with fellow friends Sasuke and Sakura and mentor Kakashi as they go through many trials and battles that come with being a ninja.",
+    "endDate": "2014-11-10",
+    "favoritesCount": 1196,
+    "mangaType": "manga",
+    "nextRelease": null,
+    "popularityRank": 25,
+    "posterImage":  {
+      "large": "https://media.kitsu.io/manga/poster_images/35/large.jpg",
+      "medium": "https://media.kitsu.io/manga/poster_images/35/medium.jpg",
+      "meta":  {
+        "dimensions":  {
+          "large":  {
+            "height": null,
+            "width": null,
+          },
+          "medium":  {
+            "height": null,
+            "width": null,
+          },
+          "small":  {
+            "height": null,
+            "width": null,
+          },
+          "tiny":  {
+            "height": null,
+            "width": null,
+          },
+        },
+      },
+      "original": "https://media.kitsu.io/manga/poster_images/35/original.png",
+      "small": "https://media.kitsu.io/manga/poster_images/35/small.jpg",
+      "tiny": "https://media.kitsu.io/manga/poster_images/35/tiny.jpg",
+    },
+    "ratingFrequencies":  {
+      "10": "496",
+      "11": "20",
+      "12": "975",
+      "13": "79",
+      "14": "3461",
+      "15": "105",
+      "16": "2434",
+      "17": "148",
+      "18": "1910",
+      "19": "85",
+      "2": "118",
+      "20": "6813",
+      "3": "1",
+      "4": "87",
+      "5": "1",
+      "6": "118",
+      "7": "6",
+      "8": "544",
+      "9": "4",
+    },
+    "ratingRank": 283,
+    "serialization": "Shounen Jump (Weekly)",
+    "slug": "naruto",
+    "startDate": "1999-09-21",
+    "status": "finished",
+    "subtype": "manga",
+    "synopsis": "Before Naruto's birth, a great demon fox had attacked the Hidden Leaf Village. A man known as the 4th Hokage sealed the demon inside the newly born Naruto, causing him to unknowingly grow up detested by his fellow villagers. Despite his lack of talent in many areas of ninjutsu, Naruto strives for only one goal: to gain the title of Hokage, the strongest ninja in his village. Desiring the respect he never received, Naruto works towards his dream with fellow friends Sasuke and Sakura and mentor Kakashi as they go through many trials and battles that come with being a ninja.",
+    "tba": null,
+    "titles":  {
+      "en": "Naruto",
+      "en_jp": "Naruto",
+      "ja_jp": "NARUTO―ナルト―",
+    },
+    "updatedAt": "2022-08-14T14:40:38.651Z",
+    "userCount": 23954,
+    "volumeCount": 72,
+  },
+  "id": "35",
+  "links":  {
+    "self": "https://kitsu.io/api/edge/manga/35",
+  },
+  "relationships":  {
+    "castings":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/castings",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/castings",
+      },
+    },
+    "categories":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/categories",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/categories",
+      },
+    },
+    "chapters":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/chapters",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/chapters",
+      },
+    },
+    "characters":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/characters",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/characters",
+      },
+    },
+    "genres":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/genres",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/genres",
+      },
+    },
+    "installments":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/installments",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/installments",
+      },
+    },
+    "mangaCharacters":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/manga-characters",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/manga-characters",
+      },
+    },
+    "mangaStaff":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/manga-staff",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/manga-staff",
+      },
+    },
+    "mappings":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/mappings",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/mappings",
+      },
+    },
+    "mediaRelationships":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/media-relationships",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/media-relationships",
+      },
+    },
+    "productions":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/productions",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/productions",
+      },
+    },
+    "quotes":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/quotes",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/quotes",
+      },
+    },
+    "reviews":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/reviews",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/reviews",
+      },
+    },
+    "staff":  {
+      "links":  {
+        "related": "https://kitsu.io/api/edge/manga/35/staff",
+        "self": "https://kitsu.io/api/edge/manga/35/relationships/staff",
+      },
+    },
+  },
+  "type": "manga",
+}

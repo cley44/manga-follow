@@ -1,4 +1,3 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -25,6 +24,7 @@ export default function App() {
             const { manga } = route.params;
             return {
               title: manga.title,
+              headerTitleAlign: "center",
             };
           }}
         />
