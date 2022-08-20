@@ -3,7 +3,7 @@ export class Manga {
   title: any;
   image: any;
   synopsis: any;
-  rating: any;
+  //rating: any;
   inCollection: boolean = false;
   inFavorite: boolean = false;
   chapterCount: number;
@@ -15,14 +15,14 @@ export class Manga {
     image: any,
     chapterCount: number,
     volumeCount: number,
-    synopsis?: any,
-    rating?: any
+    synopsis?: any
+    //rating?: any
   ) {
     this.id = id;
     this.title = title;
     this.image = image;
     this.synopsis = synopsis;
-    this.rating = rating;
+    //this.rating = rating;
     this.chapterCount = chapterCount;
     this.volumeCount = volumeCount;
   }

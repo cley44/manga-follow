@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "311130065354",
+    "project_id": "manga-follow",
+    "storage_bucket": "manga-follow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311130065354:android:027566a0000a0c4fa32733",
+        "android_client_info": {
+          "package_name": "com.manga.mangafollow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311130065354-5c51cmuk29o37coc0nddiinu79mniuk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZzuwspCoLqcu3s2vPfDAhO66Abv0P_-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311130065354-5c51cmuk29o37coc0nddiinu79mniuk1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

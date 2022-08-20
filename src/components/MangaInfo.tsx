@@ -1,35 +1,55 @@
 import React, { useState } from "react";
-import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { CheckBox, ListItem } from "@rneui/themed";
 import { Manga } from "../Manga";
+import { useNavigation } from "@react-navigation/native";
+import { getDatabase, ref, set } from "firebase/database";
+import { getAuth, User } from "firebase/auth";
 
 export const MangaInfo = ({ route }: any) => {
   const manga: Manga = route.params.manga;
+  const user = getAuth().currentUser;
+
+  const navigation = useNavigation();
 
   const [collectionCheck, setCollectionCheck] = useState<boolean>(false);
   const [favoriteCheck, setFavoriteCheck] = useState<boolean>(false);
 
-  console.log(manga.volumeCount);
+  const database = getDatabase();
 
   const showTome = () => {
     let tomes = [];
     for (let index = 1; index <= manga.volumeCount; index++) {
       tomes.push(
-        <ListItem bottomDivider key={index}>
-          <ListItem.Content
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <View style={{ width: "50%", alignItems: "center" }}>
-              <ListItem.Title>Tome {index}</ListItem.Title>
-            </View>
-            <View style={{ width: "50%" }}>
-              <ListItem.Chevron iconStyle={{ fontSize: 30 }} />
-            </View>
-          </ListItem.Content>
-        </ListItem>
+        <TouchableOpacity
+          key={index}
+          onPress={() => {
+            navigation.navigate("Tome");
+          }}
+        >
+          <ListItem bottomDivider>
+            <ListItem.Content
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <View style={{ width: "50%", alignItems: "center" }}>
+                <ListItem.Title>Tome {index}</ListItem.Title>
+              </View>
+              <View style={{ width: "50%" }}>
+                <ListItem.Chevron iconStyle={{ fontSize: 30 }} />
+              </View>
+            </ListItem.Content>
+          </ListItem>
+        </TouchableOpacity>
       );
     }
     return tomes;
@@ -70,7 +90,14 @@ export const MangaInfo = ({ route }: any) => {
             uncheckedIcon={"plus"}
             checkedIcon={"check"}
             onPress={() => {
-              setCollectionCheck(!collectionCheck);
+              if (user) {
+                const reference = ref(
+                  database,
+                  user.uid + "/manga/" + manga.title
+                );
+                set(reference, manga);
+                setCollectionCheck(!collectionCheck);
+              }
             }}
           />
           <CheckBox
