@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Text,
   View,
@@ -12,6 +12,7 @@ import { Manga } from "../Manga";
 import { useNavigation } from "@react-navigation/native";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, User } from "firebase/auth";
+import { CollectionContext } from "../collectionContext";
 
 export const MangaInfo = ({ route }: any) => {
   let manga: Manga = route.params.manga;
@@ -25,6 +26,8 @@ export const MangaInfo = ({ route }: any) => {
   const [favoriteCheck, setFavoriteCheck] = useState<boolean>(manga.inFavorite);
 
   const database = getDatabase();
+
+  const { collection, setCollection } = useContext(CollectionContext);
 
   const showTome = () => {
     let tomes = [];
@@ -97,16 +100,16 @@ export const MangaInfo = ({ route }: any) => {
                 m["inCollection"] = true;
                 manga = m;
 
+                setCollection([...collection, manga]);
+
                 const reference = ref(
                   database,
                   user.uid + "/manga/" + manga.title
                 );
 
                 set(reference, manga);
-                console.log("in DB");
 
                 setCollectionCheck(!collectionCheck);
-                console.log("collectionCheck handled");
               }
             }}
           />

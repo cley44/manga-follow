@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import Footer from "./src/components/Footer";
 import { MangaInfo } from "./src/components/MangaInfo";
@@ -12,6 +12,9 @@ import {
   signInAnonymously,
   User,
 } from "firebase/auth";
+import { CollectionContext } from "./src/collectionContext";
+import { Manga } from "./src/Manga";
+import { get, getDatabase, ref } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -30,42 +33,57 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isConnected, setIsConnected] = useState<boolean>(false);
-  const [user, setUser] = useState<User>();
+
   const auth = getAuth();
+
+  const [collection, setCollection] = React.useState<Manga[]>([]);
+  const state = { collection, setCollection };
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setIsConnected(true);
-      setUser(user);
     } else {
       setIsConnected(false);
-      setUser(undefined);
     }
   });
 
+  useEffect(() => {
+    if (auth.currentUser) {
+      const database = getDatabase();
+      const reference = ref(database, auth.currentUser.uid + "/manga");
+      get(reference).then((mangas) => {
+        if (mangas.val()) {
+          setCollection(Object.values(mangas.val()));
+        }
+      });
+    }
+  }, [isConnected]);
+
   if (isConnected) {
     return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name=" "
-            component={Footer}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Manga"
-            component={MangaInfo}
-            options={({ route }: any) => {
-              const { manga } = route.params;
-              return {
-                title: manga.title,
-                headerTitleAlign: "center",
-              };
-            }}
-          />
-          <Stack.Screen name="Tome" component={TomeInfo} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <CollectionContext.Provider value={state}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name=" "
+              component={Footer}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Manga"
+              component={MangaInfo}
+              options={({ route }: any) => {
+                const { manga } = route.params;
+                return {
+                  title: manga.title,
+                  headerTitleAlign: "center",
+                };
+              }}
+            />
+            <Stack.Screen name="Tome" component={TomeInfo} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </CollectionContext.Provider>
     );
   }
 
