@@ -4,8 +4,8 @@ export class Manga {
   image: any;
   synopsis: any;
   //rating: any;
-  inCollection: boolean = false;
-  inFavorite: boolean = false;
+  inCollection: boolean;
+  inFavorite: boolean;
   chapterCount: number;
   volumeCount: number;
 
@@ -25,5 +25,7 @@ export class Manga {
     //this.rating = rating;
     this.chapterCount = chapterCount;
     this.volumeCount = volumeCount;
+    this.inCollection = false;
+    this.inFavorite = false;
   }
 }

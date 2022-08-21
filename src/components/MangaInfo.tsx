@@ -14,13 +14,15 @@ import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, User } from "firebase/auth";
 
 export const MangaInfo = ({ route }: any) => {
-  const manga: Manga = route.params.manga;
+  let manga: Manga = route.params.manga;
   const user = getAuth().currentUser;
 
   const navigation = useNavigation();
 
-  const [collectionCheck, setCollectionCheck] = useState<boolean>(false);
-  const [favoriteCheck, setFavoriteCheck] = useState<boolean>(false);
+  const [collectionCheck, setCollectionCheck] = useState<boolean>(
+    manga.inCollection
+  );
+  const [favoriteCheck, setFavoriteCheck] = useState<boolean>(manga.inFavorite);
 
   const database = getDatabase();
 
@@ -91,12 +93,20 @@ export const MangaInfo = ({ route }: any) => {
             checkedIcon={"check"}
             onPress={() => {
               if (user) {
+                const m = { ...manga };
+                m["inCollection"] = true;
+                manga = m;
+
                 const reference = ref(
                   database,
                   user.uid + "/manga/" + manga.title
                 );
+
                 set(reference, manga);
+                console.log("in DB");
+
                 setCollectionCheck(!collectionCheck);
+                console.log("collectionCheck handled");
               }
             }}
           />

@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import Footer from "./src/components/Footer";
 import { MangaInfo } from "./src/components/MangaInfo";
@@ -41,8 +41,6 @@ export default function App() {
       setIsConnected(false);
       setUser(undefined);
     }
-
-    // Do other things
   });
 
   if (isConnected) {
