@@ -11,7 +11,7 @@ import { CheckBox, ListItem } from "@rneui/themed";
 import { Manga } from "../Manga";
 import { useNavigation } from "@react-navigation/native";
 import { getDatabase, ref, set } from "firebase/database";
-import { getAuth, User } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { CollectionContext } from "../collectionContext";
 
 export const MangaInfo = ({ route }: any) => {
