@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import { CollectionContext } from "../collectionContext";
+import { PAL } from "./PAL";
 
 export const MangaInfo = ({ route }: any) => {
   let manga: Manga = route.params.manga;
@@ -25,6 +26,10 @@ export const MangaInfo = ({ route }: any) => {
   );
   const [favoriteCheck, setFavoriteCheck] = useState<boolean>(manga.inFavorite);
 
+  const [PALCheck, setPALCheck] = useState<boolean>(manga.inPAL);
+
+  const [toBuyCheck, setToBuyCheck] = useState<boolean>(manga.toBuy);
+
   const database = getDatabase();
 
   const { collection, setCollection } = useContext(CollectionContext);
@@ -36,7 +41,7 @@ export const MangaInfo = ({ route }: any) => {
         <TouchableOpacity
           key={index}
           onPress={() => {
-            navigation.navigate("Tome");
+            navigation.navigate("Tome" as any);
           }}
         >
           <ListItem bottomDivider>
@@ -97,7 +102,7 @@ export const MangaInfo = ({ route }: any) => {
             onPress={() => {
               if (user) {
                 const m = { ...manga };
-                m["inCollection"] = true;
+                m["inCollection"] = !m["inCollection"];
                 manga = m;
 
                 setCollection([...collection, manga]);
@@ -119,7 +124,70 @@ export const MangaInfo = ({ route }: any) => {
             checked={favoriteCheck}
             iconRight={true}
             onPress={() => {
-              setFavoriteCheck(!favoriteCheck);
+              if (user) {
+                const m = { ...manga };
+                m["inFavorite"] = !m["inFavorite"];
+                manga = m;
+
+                setCollection([...collection, manga]);
+
+                const reference = ref(
+                  database,
+                  user.uid + "/manga/" + manga.title
+                );
+
+                set(reference, manga);
+
+                setFavoriteCheck(!favoriteCheck);
+              }
+            }}
+          />
+          <CheckBox
+            containerStyle={styles.MangaButtonContainer}
+            title="Add to PAL"
+            checked={PALCheck}
+            iconRight={true}
+            onPress={() => {
+              if (user) {
+                const m = { ...manga };
+                m["inPAL"] = !m["inPAL"];
+                manga = m;
+
+                setCollection([...collection, manga]);
+
+                const reference = ref(
+                  database,
+                  user.uid + "/manga/" + manga.title
+                );
+
+                set(reference, manga);
+
+                setPALCheck(!PALCheck);
+              }
+            }}
+          />
+          <CheckBox
+            containerStyle={styles.MangaButtonContainer}
+            title="To Buy"
+            checked={toBuyCheck}
+            iconRight={true}
+            onPress={() => {
+              if (user) {
+                const m = { ...manga };
+                m["toBuy"] = !m["toBuy"];
+                manga = m;
+
+                setCollection([...collection, manga]);
+
+                const reference = ref(
+                  database,
+                  user.uid + "/manga/" + manga.title
+                );
+
+                set(reference, manga);
+
+                setToBuyCheck(!toBuyCheck);
+              }
             }}
           />
         </View>
@@ -140,11 +208,13 @@ const styles = StyleSheet.create({
   MangaButtonContainer: {
     width: "40%",
     borderRadius: 30,
+    alignItems: "center",
   },
 
   MangaButtonView: {
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-evenly",
+    flexWrap: "wrap",
   },
 });

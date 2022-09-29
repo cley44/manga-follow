@@ -6,6 +6,8 @@ export class Manga {
   //rating: any;
   inCollection: boolean;
   inFavorite: boolean;
+  inPAL: boolean;
+  toBuy: boolean;
   chapterCount: number;
   volumeCount: number;
 
@@ -27,5 +29,7 @@ export class Manga {
     this.volumeCount = volumeCount;
     this.inCollection = false;
     this.inFavorite = false;
+    this.inPAL = false;
+    this.toBuy = false;
   }
 }

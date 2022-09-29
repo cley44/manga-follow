@@ -6,18 +6,15 @@ import Footer from "./src/components/Footer";
 import { MangaInfo } from "./src/components/MangaInfo";
 import { TomeInfo } from "./src/components/TomeInfo";
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  onAuthStateChanged,
-  signInAnonymously,
-  User,
-} from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import { CollectionContext } from "./src/collectionContext";
 import { Manga } from "./src/Manga";
 import { get, getDatabase, ref } from "firebase/database";
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
+  apiKey: apiKey,
   authDomain: "project-id.firebaseapp.com",
   databaseURL: process.env.REACT_APP_DATABASE_URL,
   projectId: process.env.REACT_APP_PROJECT_ID,

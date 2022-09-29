@@ -14,12 +14,7 @@ export const CollectionPage = () => {
       <Tab.Screen name="PAL" component={PAL} />
       <Tab.Screen name="ToBuy" component={ToBuy} />
     </Tab.Navigator>
-    // <Text style={styles.emptyCollection}>
-    //   Your collection is empty, go to the search tab to start adding manga
-    // </Text>
   );
 };
 
-const styles = StyleSheet.create({
-  emptyCollection: { textAlign: "center" },
-});
+const styles = StyleSheet.create({});
