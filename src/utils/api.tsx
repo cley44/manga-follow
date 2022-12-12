@@ -42,3 +42,13 @@ export const searchManga = (searchWord: String) => {
       });
     });
 };
+
+const baseGoogleUrl = "https://www.googleapis.com/books/v1/volumes?q=";
+
+export const getInfoFromIsbn = (isbn: number) => {
+  return fetch(baseGoogleUrl + "+isbn:" + isbn)
+    .then((response) => response.json())
+    .then((data) => {
+      return data.items[0].volumeInfo.title;
+    });
+};

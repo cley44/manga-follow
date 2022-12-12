@@ -13,6 +13,8 @@ import { get, getDatabase, ref } from "firebase/database";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
+console.log(apiKey);
+
 const firebaseConfig = {
   apiKey: apiKey,
   authDomain: "project-id.firebaseapp.com",

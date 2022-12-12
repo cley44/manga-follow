@@ -1,9 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { ImageBackground, StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet, View } from "react-native";
 import HomePage from "./HomePage";
 import SearchPage from "./SearchPage";
 import { CollectionPage } from "./CollectionPage";
+import { ISBNScanner } from "./scanner/ISBNScanner";
 
 const Tab = createBottomTabNavigator();
 
@@ -66,13 +67,11 @@ const Footer = ({ navigation }: any) => {
         }}
         component={CollectionPage}
       />
-      {/* <Tab.Screen
-      name="Nav"
-      options={{ title: "Navigation" }}
-      component={() => {
-        return <View></View>;
-      }}
-    /> */}
+      <Tab.Screen
+        name="Nav"
+        options={{ title: "Navigation" }}
+        component={ISBNScanner}
+      />
     </Tab.Navigator>
   );
 };
